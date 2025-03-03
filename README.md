@@ -1,26 +1,27 @@
-# OSINT Intelligence Tool
+# Recon X - OSINT Intelligence Tool
 
-यह एक वेब-आधारित OSINT (Open Source Intelligence) टूल है जो निम्नलिखित सुविधाएं प्रदान करता है:
+A powerful web-based OSINT (Open Source Intelligence) tool that provides the following features:
 
-## सुविधाएं
+## Features
 
-- WHOIS डेटा रिट्रीवल
-- ईमेल वैलिडेशन
-- वेबसाइट टाइटल एक्सट्रैक्शन
-- IP जियोलोकेशन
-- Shodan स्कैनिंग
-- PDF रिपोर्ट जनरेशन
-- मल्टी-यूजर सपोर्ट
-- एडमिन पैनल
+- WHOIS Data Retrieval
+- Email Validation
+- Website Title Extraction
+- IP Geolocation
+- Shodan Scanning
+- Historical URL Lookup (Wayback Machine)
+- PDF Report Generation
+- Multi-user Support
+- Admin Panel
 
-## सेटअप
+## Setup
 
-1. आवश्यक पैकेज इंस्टॉल करें:
+1. Install required packages:
 ```bash
 pip install -r requirements.txt
 ```
 
-2. एनवायरनमेंट वेरिएबल्स सेट करें:
+2. Set environment variables:
 ```bash
 SHODAN_API_KEY=your_shodan_api_key
 IPINFO_ACCESS_TOKEN=your_ipinfo_token
@@ -29,30 +30,26 @@ ADMIN_USERNAME=admin
 ADMIN_PASSWORD=admin123
 ```
 
-3. एप्लिकेशन चलाएं:
+3. Run the application:
 ```bash
 python app.py
 ```
 
-## सुरक्षा सुविधाएं
+## Security Features
 
-- यूजर ऑथेंटिकेशन
-- रेट लिमिटिंग
-- API की वैलिडेशन
-- सेशन मैनेजमेंट
+- User Authentication
+- Rate Limiting
+- API Key Validation
+- Session Management
 
-## API एंडपॉइंट्स
+## API Endpoints
 
-- `/`: मुख्य स्कैनिंग पेज
-- `/login`: लॉगिन पेज
-- `/register`: रजिस्ट्रेशन पेज
-- `/admin`: एडमिन पैनल
-- `/download_pdf`: PDF रिपोर्ट डाउनलोड
+- `/`: Main scanning page
+- `/login`: Login page
+- `/register`: Registration page
+- `/admin`: Admin panel
+- `/download_pdf`: PDF report download
 
-## योगदान
+## Contributing
 
-इस प्रोजेक्ट में योगदान करने के लिए कृपया पुल रिक्वेस्ट भेजें।
-
-## लाइसेंस
-
-MIT License 
+Please send pull requests to contribute to this project.
