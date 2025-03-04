@@ -44,6 +44,7 @@ app = Flask(__name__, static_folder="static")
 app.config['SECRET_KEY'] = SECRET_KEY
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['PERMANENT_SESSION_LIFETIME'] = 3600  # 1 hour session lifetime
 
 # Initialize extensions
 db = SQLAlchemy(app)
@@ -54,7 +55,7 @@ login_manager.login_view = 'login'
 limiter = Limiter(
     app=app,
     key_func=get_remote_address,
-    default_limits=["100 per day", "10 per hour"]
+    default_limits=["200 per day", "50 per hour"]
 )
 
 # User Model
@@ -76,8 +77,10 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
 
 @login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
+def load_user(username):
+    if username == ADMIN_USERNAME:
+        return User(username)
+    return User.query.filter_by(username=username).first()
 
 # Drop all tables and create new ones
 with app.app_context():
@@ -260,7 +263,7 @@ def get_wayback_urls(domain):
 # Routes
 @app.route("/", methods=["GET", "POST"])
 @login_required
-@limiter.limit("10 per minute")
+@limiter.limit("100 per hour")
 def index():
     if request.method == "POST":
         if not current_user.is_active:
