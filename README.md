@@ -26,8 +26,6 @@ pip install -r requirements.txt
 SHODAN_API_KEY=your_shodan_api_key
 IPINFO_ACCESS_TOKEN=your_ipinfo_token
 SECRET_KEY=your_secret_key
-ADMIN_USERNAME=admin
-ADMIN_PASSWORD=admin123
 ```
 
 3. Run the application:
